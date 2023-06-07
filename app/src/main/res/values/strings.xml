@@ -2,5 +2,5 @@
     <string name="app_name">LocationBase Todo List</string>
     <string name="title_activity_maps">MapsActivity</string>
 
-    <string name="google_maps_key">AIzaSyAEhfd9Ugp5p22ctuPRohLoIfnhDPPdbPE</string>
+    <string name="google_maps_key">put your Google map API Key</string>
 </resources>
