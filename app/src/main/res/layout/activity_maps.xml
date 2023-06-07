@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:id="@+id/nav_host_fragment_content_home"
+
+    tools:context=".MapsActivity" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fb_add"
+            android:backgroundTint="@color/white"
+            android:layout_margin="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/baseline_add_24"
+            android:layout_width="wrap_content"
+            map:maxImageSize="35dp"
+            map:fabSize="auto"
+            android:padding="10dp"
+            map:elevation="9dp"
+            android:elevation="9dp"
+            map:useCompatPadding="true"
+            android:onClick="onClick"
+            android:adjustViewBounds="true"
+android:clickable="true"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+            android:layout_above="@id/fb_add"
+            android:id="@+id/fb_list"
+            android:backgroundTint="@color/white"
+
+            android:adjustViewBounds="true"
+            android:layout_marginBottom="80dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/baseline_view_list_24"
+            android:layout_width="wrap_content"
+            map:maxImageSize="35dp"
+            map:fabSize="auto"
+            map:elevation="9dp"
+            android:elevation="9dp"
+            map:useCompatPadding="true"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+
+</FrameLayout>
