@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
-    android:elevation="9dp"
-    app:cardElevation="9dp"
+    android:elevation="5dp"
+    app:cardElevation="5dp"
     app:contentPaddingRight="10dp"
     app:contentPaddingLeft="10dp"
     app:contentPaddingTop="10dp"
@@ -77,6 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <androidx.appcompat.widget.AppCompatTextView
+
             android:id="@+id/tv_descrepthin"
             android:textSize="15sp"
             android:padding="5dp"

@@ -18,17 +18,23 @@ import com.nic.googlemapsearch.Utill
 import com.nic.googlemapsearch.databinding.FragmentAddDataBinding
 import io.realm.Realm
 
-class AddDataFragment(supportActionBar: ActionBar?, mCurrentLocation: LatLng?) : Fragment(), View.OnClickListener {
-    var actionBar=supportActionBar
-    var location=mCurrentLocation;
+class AddDataFragment() : Fragment(), View.OnClickListener {
+//    var actionBar=supportActionBar
+//    var location=mCurrentLocation;
 
 
     private var nextids=0
-
+private lateinit var latLng: LatLng
     private lateinit var realm: Realm
     private lateinit var viewModel: AddDataViewModel
 private lateinit var addDataBinding: FragmentAddDataBinding
     private val binding get() = addDataBinding!!
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if(arguments!=null){
+             latLng= requireArguments().get("latlng") as LatLng
+        }
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         addDataBinding= FragmentAddDataBinding.inflate(layoutInflater,container,false)
@@ -42,6 +48,7 @@ private lateinit var addDataBinding: FragmentAddDataBinding
         viewModel = ViewModelProvider(this).get(AddDataViewModel::class.java)
       realm  = Realm.getDefaultInstance();
         binding.btnAdd.setOnClickListener(this)
+        Log.e("TAG", "onViewCreated: $latLng", )
     }
     override fun onClick(v: View?) {
         if (v?.id?.equals(R.id.btn_add)!!) {
@@ -55,7 +62,7 @@ private lateinit var addDataBinding: FragmentAddDataBinding
 
                     var addressBookinfo= AddressBookinfo(nextids,binding.etName.text.toString(),binding.etPhonenumber.text.toString(),
                         0,binding.etTitle.text.toString(),binding.etDescreptiuon.text.toString(),
-                        location?.latitude,location?.longitude
+                        latLng?.latitude,latLng?.longitude
                     )
 
                     it.insert(addressBookinfo)

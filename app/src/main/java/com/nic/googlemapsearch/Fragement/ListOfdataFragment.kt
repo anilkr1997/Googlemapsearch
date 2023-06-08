@@ -17,8 +17,8 @@ import com.nic.googlemapsearch.databinding.FragmentListOfdataBinding
 import io.realm.Realm
 import io.realm.RealmResults
 
-class ListOfdataFragment(supportActionBar: ActionBar?) : Fragment(), View.OnClickListener {
-    private val actionBar = supportActionBar
+class ListOfdataFragment() : Fragment(), View.OnClickListener {
+
     private var _binding: FragmentListOfdataBinding? = null
     private var ids = 0
 
@@ -52,8 +52,8 @@ class ListOfdataFragment(supportActionBar: ActionBar?) : Fragment(), View.OnClic
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        actionBar?.setDisplayShowHomeEnabled(true)
-        actionBar?.setTitle("Task List")
+      requireActivity().actionBar?.setDisplayShowHomeEnabled(true)
+        //actionBar?.setTitle("Task List")
         viewModel = ViewModelProvider(this).get(ListOfdataViewModel::class.java)
 
         realm = Realm.getDefaultInstance()
@@ -97,9 +97,7 @@ override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         R.id.deleteitom -> {
 
-         if(   Utill(context?.applicationContext).Deletaitem(context?.applicationContext,realm)){
-             binding.recycleview.adapter?.notifyDataSetChanged()
-         }
+
 
 
         }

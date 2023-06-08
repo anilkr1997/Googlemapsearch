@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.database.Observable
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
@@ -47,8 +48,8 @@ class Utill {
 
     }
 
-     fun Deletaitem(context: Context?,realm: Realm) :Boolean {
-         var deleted=false
+     fun Deletaitem(context: Context?,realm: Realm)  {
+
         AlertDialog.Builder(context)
             .setTitle("Delete")
             .setMessage("Are you sure you want to Delete All Task?")
@@ -58,14 +59,18 @@ class Utill {
                 realm.deleteAll()
                 realm.commitTransaction()
                 realm.isAutoRefresh
-                deleted=true
+
+                Toast.makeText(context, "Data Delete Successfully", Toast.LENGTH_SHORT).show()
             }
             .setNegativeButton(R.string.cancel, DialogInterface.OnClickListener { dialog, which ->
                 dialog.dismiss()
-            })
-            .setIcon(R.drawable.ic_dialog_alert)
+
+
+
+         })
+            .setIcon(R.drawable.ic_delete)
             .show()
-         return deleted
+
     }
 
 
