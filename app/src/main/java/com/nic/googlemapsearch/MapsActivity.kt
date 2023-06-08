@@ -1,27 +1,30 @@
 package com.nic.googlemapsearch
 
 import android.Manifest
+import android.Manifest.permission.ACCESS_COARSE_LOCATION
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.content.DialogInterface
+import android.content.pm.PackageManager
 import android.location.*
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.*
-
-import com.nic.googlemapsearch.databinding.ActivityMapsBinding
-import io.realm.Realm
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.maps.model.*
+import com.google.android.material.snackbar.Snackbar
+import com.nic.googlemapsearch.databinding.ActivityMapsBinding
+import io.realm.Realm
+
 
 @RequiresApi(Build.VERSION_CODES.R)
 class MapsActivity(
@@ -37,19 +40,28 @@ class MapsActivity(
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         realm = Realm.getDefaultInstance()
+//
+//        if (ActivityCompat.checkSelfPermission(applicationContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(applicationContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            requestPermissionLauncher.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
+//
+//            return
+//        }else{
+////            val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_bottem_navigation) as NavHostFragment
+////        val navController = navHostFragment.navController
+//
+//        }
 
 
 
-//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_bottem_navigation) as NavHostFragment
-//        val navController = navHostFragment.navController
-        val navController = findNavController(R.id.nav_host_fragment_activity_bottem_navigation)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-      //  navController.navigate(R.id.navigation_homfragemnt)
+    val navController = findNavController(R.id.nav_host_fragment_activity_bottem_navigation)
+    // Passing each menu ID as a set of Ids because each
+    // menu should be considered as top level destinations.
+    //  navController.navigate(R.id.navigation_homfragemnt)
 
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.navigation_homfragemnt,
-             R.id.navigation_adddatafragment, R.id.navigation_listfragment))
-        setupActionBarWithNavController(navController, appBarConfiguration)
+    val appBarConfiguration = AppBarConfiguration(setOf(R.id.navigation_homfragemnt,
+        R.id.navigation_adddatafragment, R.id.navigation_listfragment))
+    setupActionBarWithNavController(navController, appBarConfiguration)
+
 
 
 
@@ -66,10 +78,6 @@ class MapsActivity(
 
         super.onStart()
     }
-
-
-
-
 
 
 
@@ -127,7 +135,7 @@ class MapsActivity(
 
             R.id.deleteitom -> {
 
-               Utill(applicationContext).Deletaitem(applicationContext,realm)
+               Utill(applicationContext).Deletaitem(this,realm)
             //                {
 //                 Utill(applicationContext).showmassage(this,binding.container,"All Task list is Deleted ")
 //                }

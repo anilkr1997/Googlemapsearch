@@ -67,9 +67,7 @@ class Utill {
 
 
 
-         })
-            .setIcon(R.drawable.ic_delete)
-            .show()
+         }).setIcon(R.drawable.ic_delete).show()
 
     }
 

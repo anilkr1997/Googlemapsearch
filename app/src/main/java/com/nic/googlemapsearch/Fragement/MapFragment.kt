@@ -1,6 +1,7 @@
 package com.nic.googlemapsearch.Fragement
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
@@ -148,6 +149,7 @@ val  TAG=MapFragment::class.java.name
     }
 
 
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
 
         googleMap.clear()
@@ -156,23 +158,6 @@ val  TAG=MapFragment::class.java.name
         // Add a marker in Sydney and move the camera
 
 
-        if (ActivityCompat.checkSelfPermission(
-                requireContext().applicationContext,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            requestPermissionLauncher.launch(
-                arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                )
-            )
-
-            return
-        }
         mMap.isMyLocationEnabled = true
         mMap.isTrafficEnabled = true
         mMap.isIndoorEnabled = true
