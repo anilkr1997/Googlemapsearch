@@ -13,8 +13,10 @@
     tools:context="Fragement.ListOfdataFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+
+
         android:id="@+id/recycleview"
-        android:padding="5dp"
+        android:padding="10dp"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

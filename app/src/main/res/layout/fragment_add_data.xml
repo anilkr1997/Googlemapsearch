@@ -9,6 +9,7 @@
     android:focusableInTouchMode="true"
     android:focusable="true"
     android:layout_gravity="center"
+    android:background="@color/verylightgray"
     tools:context=".Fragement.AddDataFragment">
 
     <androidx.cardview.widget.CardView

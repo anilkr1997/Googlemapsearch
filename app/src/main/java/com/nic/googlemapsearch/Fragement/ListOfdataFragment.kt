@@ -62,7 +62,9 @@ class ListOfdataFragment() : Fragment(), View.OnClickListener {
         binding.recycleview?.setHasTransientState(true)
 
 
-        offline = realm.where(AddressBookinfo::class.java).findAll()//.asChangesetObservable()
+        offline = viewModel.gettasklist(realm)
+
+
         if ((offline as RealmResults<AddressBookinfo>?)!!.size > 0) {
 
             binding.recycleview.adapter =
@@ -71,8 +73,7 @@ class ListOfdataFragment() : Fragment(), View.OnClickListener {
             binding.recycleview.adapter?.notifyDataSetChanged()
 
 
-//            binding.recycleview.adapter?.apply {(offline as RealmResults<AddressBookinfo>?)?.let { Recycleadopter(context, it) }
-//            }?.notifyDataSetChanged()
+
         }
 
 
@@ -83,28 +84,7 @@ class ListOfdataFragment() : Fragment(), View.OnClickListener {
     }
 
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        // TODO: Use the ViewModel
-//    }
-@SuppressLint("NotifyDataSetChanged")
-override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-    when (item.itemId) {
 
 
-
-
-        R.id.deleteitom -> {
-
-
-
-
-        }
-
-
-    }
-    return true
-}
 
 }

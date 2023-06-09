@@ -8,28 +8,23 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.nic.googlemapsearch.R
 import com.nic.googlemapsearch.REalemDB.AddressBookinfo
+import com.nic.googlemapsearch.databinding.TasklistdataBinding
+import io.realm.Realm
 import io.realm.RealmResults
 
-class Recycleadopter(context: Context?, offline: RealmResults<AddressBookinfo>) :
+class Recycleadopter(private val context: Context?, private val offline: RealmResults<AddressBookinfo>) :
     RecyclerView.Adapter<Recycleadopter.MyViewHolder>() {
+val realm= Realm.getDefaultInstance()!!
 
-    val context = context
-    val offline = offline
+    class MyViewHolder(val binding: TasklistdataBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    class MyViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
-        val tvname: AppCompatTextView = item.findViewById(R.id.tv_name)
-        val phonenum: AppCompatTextView = item.findViewById(R.id.tv_pnumber)
-        val title: AppCompatTextView = item.findViewById(R.id.tv_title)
-        val discrepthion: AppCompatTextView = item.findViewById(R.id.tv_descrepthin)
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view: View =
-            LayoutInflater.from(parent.getContext()).inflate(R.layout.tasklistdata, parent, false)
 
-        return MyViewHolder(view)
+        return MyViewHolder(TasklistdataBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun getItemCount(): Int {
@@ -37,9 +32,18 @@ class Recycleadopter(context: Context?, offline: RealmResults<AddressBookinfo>) 
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.tvname.setText(offline[position]?.name)
-        holder.phonenum.setText(offline[position]?.phonNumber)
-        holder.title.setText(offline[position]?.Subject)
-        holder.discrepthion.setText(offline[position]?.TaskDescription)
+
+        holder.binding.tvName.setText(offline[position]?.name)
+        holder.binding.tvPnumber.setText(offline[position]?.phonNumber)
+        holder.binding.tvTitle.setText(offline[position]?.Subject)
+        holder.binding.tvDescrepthin.setText(offline[position]?.TaskDescription)
+//        holder.binding.btnMap.setOnClickListener{
+//
+//        }
+//        holder.binding.btnDelete.setOnClickListener{
+//            notifyItemRemoved(position)
+//
+//
+//        }
     }
 }

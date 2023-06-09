@@ -17,6 +17,7 @@ import com.nic.googlemapsearch.REalemDB.AddressBookinfo
 import com.nic.googlemapsearch.Utill
 import com.nic.googlemapsearch.databinding.FragmentAddDataBinding
 import io.realm.Realm
+import io.realm.Realm.getDefaultInstance
 
 class AddDataFragment() : Fragment(), View.OnClickListener {
 //    var actionBar=supportActionBar
@@ -46,7 +47,7 @@ private lateinit var addDataBinding: FragmentAddDataBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(AddDataViewModel::class.java)
-      realm  = Realm.getDefaultInstance();
+      realm  = getDefaultInstance();
         binding.btnAdd.setOnClickListener(this)
         Log.e("TAG", "onViewCreated: $latLng", )
     }

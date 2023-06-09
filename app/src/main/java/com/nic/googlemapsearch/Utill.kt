@@ -23,27 +23,8 @@ class Utill {
         this.context = context
 
     }
-    fun setFragment(
-        fragment: Fragment?,
-        removeStack: Boolean,
-        activity: FragmentActivity,
-        mContainer: Int
-    ) {
-        val fragmentManager = activity.supportFragmentManager
-        val ftTransaction = fragmentManager.beginTransaction()
-        if (removeStack) {
-            val size = fragmentManager.backStackEntryCount
-            fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            ftTransaction.replace(mContainer, fragment!!)
-        } else {
-            ftTransaction.replace(mContainer, fragment!!)
-            ftTransaction.addToBackStack(null)
-        }
-        ftTransaction.commit()
-    }
     fun showmassage(context: Context?,view: View,massage:String){
         val snackbar = Snackbar.make(view, massage, Snackbar.LENGTH_LONG)
-
         snackbar.show()
 
     }

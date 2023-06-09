@@ -12,8 +12,7 @@
     app:contentPaddingBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <androidx.appcompat.widget.LinearLayoutCompat
-
-    android:weightSum="2"
+android:weightSum="2"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -49,6 +48,7 @@
             android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
 
     </TableLayout>
     <TableLayout
@@ -86,5 +86,37 @@
             android:layout_height="wrap_content"/>
 
     </TableLayout>
+<!--    <TableLayout-->
+<!--        android:visibility="gone"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+<!--        <androidx.appcompat.widget.AppCompatImageButton-->
+<!--            android:background="@drawable/edittextback"-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:id="@+id/btn_map"-->
+<!--            app:srcCompat="@drawable/baseline_map_24"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            android:padding="5dp"-->
+<!--            android:elevation="10dp"-->
+<!--            android:text="Save" />-->
+<!--        <androidx.appcompat.widget.AppCompatImageButton-->
+<!--            android:background="@drawable/edittextback"-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:id="@+id/btn_delete"-->
+<!--            app:srcCompat="@drawable/baseline_delete_24"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:padding="5dp"-->
+<!--            android:elevation="10dp"-->
+<!--            android:adjustViewBounds="true"-->
+
+<!--            android:text="Save" />-->
+
+<!--    </TableLayout>-->
 </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.cardview.widget.CardView>
