@@ -3,4 +3,10 @@
     <string name="title_activity_maps">MapsActivity</string>
 
     <string name="google_maps_key">AIzaSyAEhfd9Ugp5p22ctuPRohLoIfnhDPPdbPE</string>
+    <string name="mapname">Location</string>
+    <string name="add_task">add Task</string>
+    <string name="add_item">Add item</string>
+    <string name="view_list_item">list item</string>
+
+
 </resources>

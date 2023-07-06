@@ -2,10 +2,11 @@ package com.nic.googlemapsearch.REalemDB
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
+import io.realm.annotations.RealmClass
 
 
 //245416
-
+@RealmClass
 open class AddressBookinfo (
     @PrimaryKey
      var id: Int = 0,

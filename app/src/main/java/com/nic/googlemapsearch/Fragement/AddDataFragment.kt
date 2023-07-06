@@ -1,6 +1,5 @@
 package com.nic.googlemapsearch.Fragement
 
-import android.location.Location
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -8,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.model.LatLng
@@ -54,6 +52,7 @@ private lateinit var addDataBinding: FragmentAddDataBinding
     override fun onClick(v: View?) {
         if (v?.id?.equals(R.id.btn_add)!!) {
             if (validation()) {
+
                 realm.executeTransactionAsync ({
 
                     var ids = it.where(AddressBookinfo::class.java).max("id")

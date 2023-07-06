@@ -24,7 +24,7 @@ val realm= Realm.getDefaultInstance()!!
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
-        return MyViewHolder(TasklistdataBinding.inflate(LayoutInflater.from(parent.context)))
+        return MyViewHolder(TasklistdataBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun getItemCount(): Int {

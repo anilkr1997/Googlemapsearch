@@ -14,7 +14,6 @@
 
     <androidx.recyclerview.widget.RecyclerView
 
-
         android:id="@+id/recycleview"
         android:padding="10dp"
         android:layout_margin="10dp"
