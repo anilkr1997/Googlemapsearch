@@ -3,8 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
     id 'kotlin-kapt'
-    id 'realm-android'
-
+    alias(libs.plugins.serialization)
+    id 'realm-android'//TODO if AGP over 8 use realm-kotlin plugin ("io.realm.kotlin") replace
 }
 
 //apply plugin: 'realm-android'
@@ -12,7 +12,9 @@ plugins {
 android {
     namespace 'com.nic.googlemapsearch'
     compileSdk 33
-
+    buildFeatures {
+        viewBinding true
+    }
     defaultConfig {
         applicationId "com.nic.googlemapsearch"
         minSdk 24
@@ -35,16 +37,10 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
-    buildFeatures {
-        viewBinding true
-    }
-
 //    realm {
 //        syncEnabled = true
 //    }
-
 }
-
 
 dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
@@ -64,6 +60,6 @@ dependencies {
     implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
-    //implementation 'io.realm:realm-gradle-plugin:10.11.1'
-
+//    implementation libs.realm.kotlin.base
+//    implementation libs.realm.kotlin.sync
 }
